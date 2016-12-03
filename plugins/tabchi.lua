@@ -271,7 +271,6 @@ patterns = {
   "^[#!/](bc) (.*)$",
   "^[#!/](fwdall)$",
   "^[!/#](lua) (.*)$",
-  "(https://telegram.me/joinchat/%S+)",
   "^[$](.*)$"
 },
 run = run,
