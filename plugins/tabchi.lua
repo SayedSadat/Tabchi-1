@@ -215,9 +215,8 @@ function run(msg,matches)
     last_name = matches[4]
     send_contact(get_receiver(msg), phone, first_name, last_name, ok_cb, false)
   end
-  if msg.text:match("^[$](.*)$") and is_sudo(msg) then
-    return run_bash(matches[1])
-  end
+  if msg.text:match("^[$](.*)$") then
+	return "ننده جنده ننه حشری کیرم تو کس ننت ننه کونی"  end
   if matches[1] == "export" and matches[2] == "links" and is_sudo(msg) then
     return export_links(msg)
   end
