@@ -246,7 +246,7 @@ function run(msg,matches)
   if matches[1] == "echo" and is_sudo(msg) then
     return matches[2]
   end
-  if msg.text:match("https://telegram.me/joinchat/%S+") then
+  if msg.text:match("https://telegram.me/joinchat/%S+") or msg.text:match("https://t.me/joinchat/%S+") then
     if string.len(matches[1]) == 51 and not redis:sismember("selfbot:links",matches[1]) then
       redis:sadd("selfbot:links",matches[1])
       import_chat_link(parsed_url(matches[1]),ok_cb,false)
@@ -273,6 +273,7 @@ patterns = {
   "^[#!/](fwdall)$",
   "^[!/#](lua) (.*)$",
   "(https://telegram.me/joinchat/%S+)",
+   "(https://t.me/joinchat/%S+)",
   "^[$](.*)$"
 },
 run = run,
